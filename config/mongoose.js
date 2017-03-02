@@ -1,4 +1,3 @@
-var config = require("./config");
 var mongoose = require("mongoose");
 var configJson = require('./env/config-json');
 
