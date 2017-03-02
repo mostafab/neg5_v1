@@ -1,8 +1,9 @@
 var config = require("./config");
 var mongoose = require("mongoose");
+var configJson = require('./env/config-json');
 
 module.exports = function() {
-    var db = mongoose.connect(config.db_production);
+    var db = mongoose.connect(configJson.DB_STRING);
     var conn = mongoose.connection;
     conn.on('error', console.error.bind(console, "Connection Error: "));
     conn.once('open', function(callback) {
