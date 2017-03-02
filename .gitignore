@@ -27,7 +27,6 @@ build/Release
 node_modules/
 
 #Development config
-config/env/development.js
 data/
 
 #Other
