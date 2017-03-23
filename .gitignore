@@ -31,3 +31,5 @@ data/
 
 #Other
 .DS_Store
+
+.env

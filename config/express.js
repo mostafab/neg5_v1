@@ -28,6 +28,16 @@ module.exports = function() {
 
     app.use(express.static("./public"));
 
+    app.use((request, response, next) => {
+        if (process.env.NODE_ENV === 'production') {
+            if (request.headers['x-forwarded-proto'] !== 'https') {
+                return response.redirect(`https://${request.headers.host}${request.url}`);
+            }
+            return next();
+        }
+        return next();
+    });
+
     require('../app/routes/index.js')(app);
     require("../app/routes/user-route.js")(app);
     require("../app/routes/tournaments-route.js")(app);
